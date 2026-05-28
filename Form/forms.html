@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in HTML</title>
+    <style>
+        input{
+            outline : none;
+            border :  none;
+            border-bottom : 2px dotted black;
+        }
+        fieldset{
+            border : none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Sports Physical Form</h2>
+    <form action="actionPage.html" method="get">
+
+        <fieldset>
+            <legend>Athlete Information</legend>
+            <ul>
+                <li>
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </li>
+                <li>
+                    <label for="school_team">School/Team :</label>
+                    <input type="text" id="school_team" name="school_team" placeholder="Enter your School or Team" value="PU"  readonly>
+                </li>
+                <li>
+                    <label for="sports">Sport :</label>
+                    <input type="text" id="sports" name="sports" required>
+                </li>
+                <li>
+                    <label for="parent_guardian">Parent/Guardian Name :</label>
+                    <input type="text" id="parent_guardian" name="parent_guardian" placeholder="Parent or Guardian name" required>
+                </li>
+                <li>
+                    <label for="contact">Contact Number :</label>
+                    <input type="text" id="contact" name="contact" placeholder="Example: +91 3567827272" required>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>Medical History for Athletes</legend>
+            <ul>
+                <li>
+                    History of concussions:
+                    <input type="radio" id="concussions-yes" name="concussions" value="concussions-yes" required>
+                    <label for="concussions-yes">Yes</label>
+                    <input type="radio" id="concussions-no" name="concussions" value="concussions-no" required>
+                    <label for="concussions-no">No</label>
+                </li>
+                <li>
+                    <label for="surgeries">Previous surgeries:</label>
+                    <input type="text" id="surgeries" name="surgeries" required></li>
+                <li>
+                    Any bone fractures?
+                    <input type="radio" id="fractures-yes" name="fractures" value="fractures-yes" required>
+                    <label for="fractures-yes">Yes</label>
+                    <input type="radio" id="fractures-no" name="fractures" value="fractures-no" required>
+                    <label for="fractures-no">No</label>
+                </li>
+                <li>
+                    Asthma or breathing problems:
+                    <input type="radio" id="asthma-yes" name="breathing_problems" value="asthma-yes" required>
+                    <label for="asthma-yes">Yes</label>
+                    <input type="radio" id="asthma-no" name="breathing_problems" value="asthma-no" required>
+                    <label for="asthma-no">No</label>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>Date/Time</legend>
+            <ul>
+                <li>
+                    <label for="dob">DOB</label>
+                    <input type="date" id="dob" name="dob" required>
+                </li>
+                <li>
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time" required>
+                </li>
+                <li>
+                    <label for="date-time">Time</label>
+                    <input type="datetime-local" id="date-time" name="date-time" required>
+                </li>
+            </ul>  
+        </fieldset>
+
+        <fieldset>
+            <legend>Textarea</legend>
+            <ul>
+                <li>
+                    <p>
+                    <label for="summary">Summary of your last operation:</label>
+                    </p>
+                    <textarea name="" id="summary" rows="7" cols="50" placeholder="Write your summary"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>File Input</legend>
+            <label for="file">Drop your last Medical Report :</label>
+            <input type="file" accept=".html" id="file" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Checkbox/select/number</legend>
+            <li>
+                <input type="checkbox" id="tnc" value="tnc-yes" name="tnc" required>
+                <label for="tnc">you have read those terms and conditions</label>
+            </li>
+            <li>
+                <input type="checkbox" id="pathlabsreport" value="pathlabsreport-yes" name="pathlabsreport" required>
+                <label for="pathlabsreport">Is your reports from Pathlabs?</label>
+            </li>
+        </fieldset>
+
+        <fieldset>
+            <legend>Number Input</legend>
+            <label for="hb-ratio">Percentage of HB in body?</label>
+            <input type="number" name="hb-ratio" id="hb-ratio">
+        </fieldset>
+
+        <fieldset>
+            <legend>Select</legend>
+            <label for="states">Select your states :</label>
+            <select name="states" id="states">
+                <option value="null">--Select your state--</option>
+                <option value="bihar">Bihar</option>
+                <option value="gujarat">Gujarat</option>
+                <option value="chattisgarh">Chattisgarh</option> 
+                <option value="uttarakhand">Uttarakhand</option>
+                <option value="kerela">Kerela</option>
+                <option value="karnatka">Karnatka</option>
+            </select>
+
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            </p>
+
+            <label for="range">Range:</label>
+            <input type="range" name="range" id="range" min="0" max="10" value="6">
+        </fieldset>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+</body>
+</html>
