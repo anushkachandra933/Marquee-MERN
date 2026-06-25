@@ -188,7 +188,7 @@ main{
 .card{
     border-top-left-radius: var(--card-border-radius);
     border-top-right-radius: var(--card-border-radius);
-    width : 18rem;
+    width : 16.5rem;
     height : 7.5rem;
     display: flex;
     align-items: center;
