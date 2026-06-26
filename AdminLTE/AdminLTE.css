@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;/*to hide scrollbar*/
   overflow-y: scroll; 
   display: grid;
-  grid-template-columns: 16% 1fr;
+  grid-template-columns: 15% 1fr;
   grid-template-rows: 10% 1fr 10%;
 }
 
