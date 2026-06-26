@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy, sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: blueviolet;
+    height: 75%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner-card{
+    height : 80%;
+    width : 70%;
+    background-color: white;
+    border-radius : 15px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 1rem;
+}
+
+.profile-pic{
+    width: 200px;
+    height : 200px;
+    border-radius: 20px;
+    position: relative;
+    top : -20px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#blink{
+    width : 25px;
+    height : 25px;
+    border-radius: 100%;
+    background-color: rgb(5, 85, 5);
+    position: absolute;
+    top : 0;
+    right : 0;
+    animation-name: blinking;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinking{
+    from{
+        background-color: rgb(5, 85, 5);
+    }
+
+    to{
+        background-color: rgb(72, 249, 72);
+    }
+}
+
+p{
+    color : grey;
+    font-size: 0.8rem;
+}
+
+.stats-container{
+    display: flex;
+    align-items: center;
+    gap : 1rem;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons-container{
+    display: flex;
+    align-items: center;
+    gap : 1.5rem;
+}
+
+button{
+    color : white;
+    border-radius: 5px;
+    width : 100px;
+    height : 40px;
+    border: none;
+    outline: none;
+}
+
+#follow{
+    background-color: blueviolet;
+}
+
+#msg{
+    background-color: grey;
+}
