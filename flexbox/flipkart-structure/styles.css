@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-    
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -22,9 +18,10 @@ header{
     width : 77%;
     background-color: rgb(255, 252, 255);
     height : 200px;
-    margin : 0px auto; /*auto-for adjusting left and right margin equally*/
+    /* margin : 0px auto; auto-for adjusting left and right margin equally */
     position : fixed;
     left : 12.5%;
+    right : 12.5%;
     z-index: 1;
 }
 
@@ -50,8 +47,8 @@ nav{
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    width : 120px;
-    height : 40px;
+    width : 7.5rem;
+    height : 2.5rem;
     border: none;
     cursor: pointer;
 }
@@ -103,8 +100,8 @@ nav{
 }
 
 .box-item{
-    width : 60x;
-    height : 40px;
+    width : 3.75rem;
+    height : 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content : center;
@@ -116,21 +113,21 @@ nav{
 main{
     display: flex;
     flex-direction: column;
-    gap : 25px;
+    gap : 1.56rem;
     width : 75%;
     margin : 0px auto;
     position: relative;
-    top : 220px;
+    top : 13.75rem;
 }
 
 #ad-banner{
     display: flex;
-    gap : 20px; 
+    gap : 1.25rem; 
 }
 
 .ad-banners{
     flex : 1;
-    height: 200px;
+    height: 12.5rem;
     cursor: pointer;
 }
 
@@ -150,19 +147,19 @@ main{
 .img-1{
     object-fit: cover;
     border-radius : 15px;
-    height : 200px;
+    height : 12.5rem;
 
 }
 
 #img-2{
-    height : 190px;
-    width : 190px;
+    height : 11.87rem;
+    width : 11.87rem;
     border-radius : 15px;
 }
 
 #home-decor{
     background-color : orangered;
-    height : 270px;
+    height : 16.87rem;
     padding : 15px;
     display : flex;
     flex-direction: column;
@@ -179,10 +176,10 @@ main{
 }
 
 #arrow{
-    height : 20px;
-    width : 40px;
+    height : 1.25rem;
+    width : 2.5rem;
     background-color: white;
-    border-radius : 20px;
+    border-radius : 1.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +190,7 @@ main{
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
-    height : 200px;
+    height : 12.5rem;
     border-radius : 15px; 
 }
 
@@ -205,15 +202,15 @@ main{
 }
 
 .decor img{
-    width : 210px;
-    height : 160px;
+    width : 13.12rem;
+    height : 10rem;
     object-fit: cover;
     border-radius : 15px;
 }
 
 #spotlight{
     width : 60%;
-    height : 500px;
+    height : 31.25rem;
     display: flex;
     flex-direction: column;
     gap : 5px;
@@ -223,12 +220,12 @@ main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height : 240px;
+    height : 15rem;
 }
 
 .shoes{
-    height : 230px;
-    width : 190px;
+    height : 14.37rem;
+    width : 11.87rem;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -236,15 +233,15 @@ main{
 footer{
     background-color: rgb(38, 37, 37);
     width : 100vw;
-    margin-top : 270px;
-    height : 300px;
+    margin-top : 16.87rem;
+    height : 18.75rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 #footer-top{
-    padding : 40px 10px;  
+    padding : 2.5rem 10px;  
     height : 80%;
     font-size: 0.8rem;
     width : 100vw;
@@ -335,3 +332,5 @@ footer hr{
 .footer-bottom-items i{
     color : rgb(149, 149, 94);
 }
+
+

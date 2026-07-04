@@ -63,23 +63,6 @@ function checkWeekDay(weekValue){
 
 
 //question 6
-function printEven(range){
-    for(let i=1; i<=30; i++){
-        if(i% 2 == 0){
-            console.log(i);
-        }
-    }
-}
-
-
-//question 7
-function printTable(num){
-    for(let i=1; i<=10; i++){
-        console.log(`${num}*${i} = ${num * i}`);
-    }
-}
-
-//question 8
 function getGrade(marks){
     if(marks>= 90 && marks <= 100){
         return "A+";
