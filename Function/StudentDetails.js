@@ -131,7 +131,11 @@ const students = [
   },
 ];
 
-
+/**
+ * This function is used to return name,email and phone of student
+ * @param {object} student 
+ * @returns object
+ */
 function basicStudentDetails(student){
     return {
         name: student.name,
@@ -141,10 +145,24 @@ function basicStudentDetails(student){
     }
 }
 
-const newArray = students.map((students)=>
+// const newArray = students.map((students)=>
 
-   basicStudentDetails(students)
-);
+//    basicStudentDetails(students)
+// );
 
-console.log(newArray);
+// console.log(newArray);
 
+
+function studentCourse(studentArr,courseName){
+ let names=studentArr.filter((student)=> {
+  if(student.course==courseName){
+    return student.name
+  }
+ })
+ return {
+  1:names[0].name,
+  2:names[1].name
+ };
+  
+}
+console.log(studentCourse(students,"BCA"));
