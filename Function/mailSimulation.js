@@ -148,16 +148,17 @@ const students = [
 
 
 function sendEmail(student){
-    return `To : ${student.email}
-Subject : Welcome to ${student.course} Course
+  const {email,name,course,phone} = student //object destructuring
+    return `To : ${email}
+Subject : Welcome to ${course} Course
 
-Hello ${student.name},
+Hello ${name},
 
-We are happy to have you in our ${student.course} course.
+We are happy to have you in our ${course} course.
 We hope you enjoy learning with us.
 If you have any questions, feel free to contact us.
 
-Phone : ${student.phone}
+Phone : ${phone}
 
 Regards,
 Parul University
