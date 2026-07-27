@@ -1,0 +1,45 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    gap : 1rem;
+}
+
+#container{
+    width: 200px;
+    height : 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#circle{
+    border-radius: 50%;
+    width : 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.btn{
+    display: flex;
+    gap : 4rem;
+}
+
+.buttons{
+    border-radius: 1rem;
+    width : 50px;
+    background-color: rgb(249, 245, 245);
+    border-color : rgb(249, 245, 245);
+    border-color: grey;
+}
+
+.white{
+    background-color: white;
+}
+
+.yellow{
+    background-color: yellow;
+}
