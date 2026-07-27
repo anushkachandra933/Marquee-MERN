@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="unorderedList-1">
+        <li class="Items">Item 1</li>
+        <li class="Items">Item 2</li>
+        <li class="Items">Item 3</li>
+        <li class="Items">Item 4</li>
+        <li class="Items">Item 5</li>
+        <li class="Items">Item 6</li>
+    </ul>
+
+    <ul id="unorderedList-2">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <script>
+        let listItems = document.querySelector('#unorderedList-1 :nth-Child(2)');
+        console.log(listItems);
+    </script>
+</body>
+</html>
