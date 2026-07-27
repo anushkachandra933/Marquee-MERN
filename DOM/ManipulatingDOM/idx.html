@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        
+    </ul>
+    <script>
+        const fruits = ["mango","pear","grapes","melon"];
+        let list = document.getElementById("list");
+        fruits.forEach((el)=>{
+
+            let item = document.createElement('li');
+            item.textContent = el;
+            list.appendChild(item);
+        });
+        console.log(list);
+    </script>
+</body>
+</html>

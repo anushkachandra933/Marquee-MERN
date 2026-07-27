@@ -12,9 +12,12 @@ function createBankAccount(accHolder,mobile,email,balance){
         },
 
         withdraw(amount){
-            this.balance -= amount;
-            
-            console.log(sendWithdrawEmail.call(this,amount)); 
+            if(this.balance <=0 || this.balance < amount){
+                console.log("Insufficient balance");
+            }else{
+                this.balance -= amount;
+                console.log(sendWithdrawEmail.call(this,amount)); 
+            }
         },
 
         checkBalance(){
