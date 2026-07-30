@@ -85,9 +85,30 @@
         cursor: pointer;
         background: none;
       }
+
+      #dark-theme{
+        background-color: #000;
+        color : white;
+      }
+
+      #light-theme{
+        background-color: #fff;
+        color : black;
+      }
+
+      #black-white{
+        background-color: rgb(100,100,106);
+      }
+      
     </style>
   </head>
   <body>
+    <div id="theme-box">
+      <span>Change Theme based :</span>
+      <button id="dark-theme">Dark</button>
+      <button id="light-theme">Light</button>
+      <button id="black-white">Black and White</button>
+    </div>
     <div id="drawing-board"></div>
 
     <div class="controls">
