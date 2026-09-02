@@ -13,7 +13,7 @@ let contactFormOverlay = document.getElementById("contact-form-overlay");
 let navbar = document.getElementById("nav-ribbon");
 
 document.addEventListener("mousemove", (e) => {
-  // console.log(e.clientX);
+  
   cursorFollower.style.left = `${e.clientX}px `;
   cursorFollower.style.top = `${e.clientY}px`;
   cursorFollower.style.transform = "translate(-30px,-30px)";
@@ -25,22 +25,25 @@ modeChangeText.addEventListener("click", (e) => {
   e.target.textContent == "DARK MODE"
     ? (e.target.textContent = "LIGHT MODE")
     : (e.target.textContent = "DARK MODE");
+
   // To change the BG of html page
   this.document.body.classList.toggle("dark");
-  // console.log(ove);
 
   overlayHeading.forEach((menu) => {
     if (isDarkMode) {
-      menu.style.color = "black";
       document.getElementById("nav-ribbon").style.color = "white";
-      ("");
       topSection.style.backgroundColor = "black";
+      overlayMenus.style.backgroundColor = "black";
+      overlayMenus.style.color = "white";
     } else {
       document.getElementById("nav-ribbon").style.color = "black";
       topSection.style.backgroundColor = "#e4e4e4";
+      overlayMenus.style.backgroundColor = "white";
+      overlayMenus.style.color = "black";
     }
   });
 });
+
 // Top Section
 topSection.addEventListener("mousemove", (e) => {
   cursorBox.style.opacity = 1;
@@ -56,46 +59,35 @@ topSection.addEventListener("mouseleave", (e) => {
 // Overlays Menu Text
 
 menuText.addEventListener("mouseenter", (e) => {
-  e.target.textContent = "CLOSE";
+  if(overlayIsOpen){
+    e.target.textContent = "CLOSE";
+  }else{
+   e.target.textContent = "OPEN";
+  }
 });
+
 menuText.addEventListener("mouseleave", (e) => {
-  e.target.textContent = "MENU";
+  if(overlayIsOpen){
+    e.target.textContent = "CLOSE";
+  }else{
+    e.target.textContent = "MENU";
+  }
 });
 
 /*FIXME:  OVERLAY: STEP 1*/
 menuText.addEventListener("click", (e) => {
   overlayIsOpen = !overlayIsOpen;
-  if (isDarkMode && overlayIsOpen) {
-    document.getElementById("nav-ribbon").style.color = "black";
-  }
 
   if (overlayIsOpen) {
     e.target.textContent = "CLOSE";
     overlayMenus.style.opacity = 1;
-    overlayMenus.style.top = "-0%";
-    // Dark Mode
-    document.getElementById("nav-ribbon").style.color = "black";
-    modeChangeText.style.visibility = "hidden";
-    // TODO: Add Translate Effect
-    overlayHeading.forEach((heading) => {
-      heading.style.translate = "0% 0%";
-    });
-
-    // overlayMenus.style.transform = 'translateY(0%)';
+    overlayMenus.style.top = "0%";
   } else {
     e.target.textContent = "MENU";
     overlayMenus.style.opacity = 1;
     overlayMenus.style.top = "-110%";
-    modeChangeText.style.visibility = "visible";
-
-    // TODO: Add Translate Effect
-    overlayHeading.forEach((heading) => {
-      heading.style.translateY = "-100% 100%";
-    });
   }
-  if (isDarkMode) {
-    document.getElementById("nav-ribbon").style.color = "white";
-  }
+  
 });
 
 // Move Left all the Heading of Overlays
@@ -105,16 +97,11 @@ let overlayItems = document
   .forEach((item) => {
     console.log(item);
     item.addEventListener("mouseenter", (e) => {
-      // FIXME:  FOr images
-
-      item.firstElementChild.style.width = "200px";
-
-      // FIXME: For Heading
+      item.firstElementChild.style.width = "160px";
     });
 
     item.addEventListener("mouseleave", (e) => {
       item.firstElementChild.style.width = "0px";
-      //  item.firstElementChild.style.left = '0%';
       item.lastElementChild.style.transform = "translateX(0px)";
     });
   });
@@ -130,47 +117,52 @@ overlayMenus.addEventListener("mouseleave", (e) => {
 });
 
 // PopOut Area
+//TODO: Explanation PopOut Area
 
-let highlights = document.querySelectorAll(".highlight");
-// debugger;
-highlights.forEach((highlight) => {
-  let images = highlight.querySelectorAll("img");
-  if (!images.length) return;
+const ImageTriggersBox = document.querySelectorAll('.highlight');
 
-  let idx = 0;
-  let zIndex = images.length;
-  let interval = null;
+ImageTriggersBox.forEach((element) => {
+  let interval;
+  let index = 0;
+  //NOTE: When Mouseenter
+  element.addEventListener('mouseenter', () => {
+    const images = element.querySelectorAll('.image-highlight');
 
-  highlight.addEventListener("mouseenter", () => {
-    if (interval) return;
+    // Start from the first image
+    index = 0;
+
+    images[index].style.opacity = '1';
+
     interval = setInterval(() => {
-      const current = images[idx % images.length];
+      // Hide current image
+      images[index].style.opacity = '0';
+      index++;
 
-      if (idx < images.length) {
-        current.classList.add("show");
-        current.style.zIndex = ++zIndex;
-      } else {
-        current.classList.remove("show");
-        requestAnimationFrame(() => {
-          current.style.zIndex = ++zIndex;
-          requestAnimationFrame(() => {
-            current.classList.add("show");
-          });
-        });
+      // Loop back to first image
+      if (index >= images.length) {
+        index = 0;
       }
-      idx++;
+
+      // Show next image
+      images[index].style.opacity = '1';
     }, 300);
   });
 
-  highlight.addEventListener("mouseleave", () => {
+  // NOTE: when mouseleave
+  element.addEventListener('mouseleave', () => {
+    // console.log(interval);
+
+    // Stop the loop
     clearInterval(interval);
-    interval = null;
-    images.forEach((img) => {
-      img.classList.remove("show");
-      img.style.zIndex = "";
+
+    const images = element.querySelectorAll('.image-highlight');
+
+    // Hide all images
+    images.forEach((image) => {
+      image.style.opacity = '0';
     });
-    idx = 0;
-    zIndex = images.length;
+
+    index = 0;
   });
 });
 
@@ -203,3 +195,59 @@ interestOptionItems.forEach((option) => {
     e.target.classList.add("active");
   });
 });
+
+// TODO: Playgroud
+
+let playgroundHeading = document.getElementById('playground-heading');
+// let playgroundItem = ;
+
+playgroundHeading.addEventListener('mousemove', (e) => {
+  const { offsetX, offsetY } = e;
+
+  // FIXME: Move Item
+  document.getElementById('playground-item').style.top = `${offsetY}px`;
+  document.getElementById('playground-item').style.left = `${offsetX}px`;
+});
+
+playgroundHeading.addEventListener('mouseenter',()=>{
+  document.getElementById('playground-item').style.display = 'block';
+})
+
+playgroundHeading.addEventListener('mouseleave',()=>{
+  document.getElementById('playground-item').style.display = 'none';
+})
+
+//grid-video-items
+document.querySelectorAll('.grid-vedio-items').forEach((item)=>{
+  const follower = item.querySelector(".video-item-follower");
+  item.addEventListener('mouseenter',(e)=>{
+    e.target.firstElementChild.style.filter = "blur(3px) "
+    e.target.style.transform = "scale(0.95)"
+    e.target.lastElementChild.style.width = "80%";
+
+  })
+
+  item.addEventListener('mouseleave',(e)=>{
+    follower.style.display = "none";
+    e.target.firstElementChild.style.filter = "none";
+    e.target.style.transform = "scale(1)";
+    e.target.lastElementChild.style.width = "0";
+  })
+
+  //follower
+  item.addEventListener('mousemove',(e)=>{
+    follower.style.display = "block";
+    const rect = item.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    follower.style.top = `${y}px`;
+    follower.style.left = `${x}px`;
+  })
+
+  setTimeout(() => {
+    item.style.transform = "translate(0% 0%)";
+    item.style.transform = "rotate(0deg)"
+  }, 400);
+})

@@ -40,17 +40,19 @@ body {
   /* Flex  */
   display: flex;
   justify-content: space-between;
-  font-family: 'GTPressuraMono';
+  font-family: 'GT Pressura Mono';
   font-weight: 100;
   letter-spacing: 0.1rem;
+  font-size : 0.9rem;
 }
 
 #nav-ribbon-left {
-  width: 26%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding : 1rem;
+  
 }
 
 #nav-ribbon-right{
@@ -60,6 +62,7 @@ body {
   justify-content: space-between;
   padding-right: 2.7rem;
 }
+
 #top-section {
   z-index: 10;
   width: 100vw;
@@ -79,11 +82,9 @@ body {
   line-height: 170px;
   text-align: center;
 }
+
 #mode {
-  /* cursor: pointer; */
-  width: 110px;
-  /* FIXME:  */
-  /* background-color: red; */
+  width: 180px; 
 }
 #menu,
 #contact {
@@ -91,11 +92,9 @@ body {
 }
 #menu {
   width: 70px;
-  /* FIXME:  */
-  /* background-color: green; */
 }
+
 #animated-cursor-box {
-  /* FIXME: Z-index */
   z-index: 100;
   width: 250px;
   height: 350px;
@@ -104,72 +103,62 @@ body {
   /* Position based on the cursor */
   position: absolute;
   transition: all linear 0.2s;
-
-  /* TODO: only for debug */
-  /* top: 10px;
-  left: 10px; */
   opacity: 0;
 }
+
 #animated-cursor-box video {
   width: 110%;
 }
 
 /* oVERLAYS */
 #overlay {
+  z-index: 100;
   display: flex;
   align-items: center;
   padding-top: 4rem;
-  /* gap: 15rem; */
-  font-family: 'GT Pressura Mono', sans-serif;
+  font-family: 'GTPressuraMono', sans-serif;
   width: 100vw;
   height: 100%;
-  box-sizing: border-box;
-  /* padding: 150px 3rem; */
-  /* position */
+  box-sizing: border-box; 
   position: absolute;
   background-color: white;
-  top: -100%;
-  /*FIXME:  OVERLAY: STEP 2*/
+  top: -112%;
   transition: all 0.3s ease;
+}
+
+.overlay-menus h3 {
+  /* background-color: red; */
+  font-size: 100px;
+  line-height: 120px;
+  font-weight: 800;
   cursor:
     url(https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68e3b2a062e7405c3602ab28_mickey-mouse-pointer-small.svg),
     pointer;
-  
-  /* overflow: hidden; */
-}
-.overlay-menus {
-  /* margin-left: 2rem; */
-
-  width: auto;
-
-}
-.overlay-menus h3 {
-  font-size: 120px;
-  line-height: 80px;
 }
 
 .overlay-item {
-  width: auto;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 20px;
-  /* position: relative; */
-  transition: all 0.3s ease-in-out;
-  /* TODO: Apply Translate Effect
-   */
+  margin-bottom: 18px;
+  margin-right : 40px;
+  transform: scaleY(1.4); 
+  transition: all 0.3s ease-in-out; 
 }
+
 .overlay-item h3 {
-  translate: -100% 100%;
-  transition: all 0.7s ease;
+  letter-spacing: -3px;
+  transition: all 0.7s ease-in-out; 
 }
+
 .overlay-item img {
   width: 0px;
-  height: 120px;
+  height: 90px;
   margin-left: 10px;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
 }
+
 #follower {
   width: 20px;
   height: 20px;
@@ -177,10 +166,7 @@ body {
   background-color: blue;
   transition: all 0.5s ease;
   position: absolute;
-  z-index: 100000;
-  /* To apply bg image */
-  /* background: url(assets/spidy.png); */
-  background-size: contain;
+  z-index: 10;
 }
 
 /* PopOut Area */
@@ -230,15 +216,14 @@ body {
   opacity: 0;
   position: absolute;
   bottom: -50px;
-  left: 50%;
+  left: 50%; 
   transform: translateX(-50%) translateY(50px);
-  z-index: 2;
-  pointer-events: none;
   transition:
     opacity 0.2s ease-in-out,
     transform 0.2s ease-in-out;
   border-radius: 5%;
 }
+
 .highlight img.show {
   border-radius: 5%;
   opacity: 1;
@@ -264,6 +249,7 @@ body {
   transition: all 0.3s ease;
   background-color: #e4e4e4;
   overflow: hidden;
+  z-index: 1000;
 }
 
 #contact-form-overlay h1 {
@@ -295,6 +281,11 @@ body {
   height: 3rem;
 }
 
+.form-div label{
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
  .form-div input{
   width : 100%;
   letter-spacing: 0px;
@@ -309,7 +300,7 @@ input {
 input,
 ::placeholder {
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 3.3rem;
   font-weight: 800;
   color: #c9c9c9;
   
@@ -323,11 +314,110 @@ input,
 
 .interest-option-item{
   background-color: #c9c9c9;
-  color : white;
+  color : rgb(240, 237, 237);
   border-radius: 5px;
-  padding : 1rem;
+  padding : 0.5rem;
+  font-size: 2rem;
+  font-weight : 600;
 }
 .interest-option-item.active{
   color: #c9c9c9;
   background-color : black;
 }
+
+/* TODO: Playground */
+
+#playground {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top : 20rem;
+  margin-bottom : 15rem;
+}
+
+#playground-heading {
+  padding: 5px ;
+  position: relative;
+  font-size: 14rem;
+  font-family: 'Bebas Neue', sans-serif;
+
+}
+
+#playground-item {
+  position: absolute;
+  font-size: 2rem;
+  top: 0px;
+  left: 0px;
+  background-color: blue;
+  border-radius: 6px;
+  padding: 5px;
+  transform: rotate(-5deg);
+  color : white;
+
+  transition: all 0.1s ease;
+}
+
+#grid-vedio-box{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-auto-rows: 97vh;
+  padding : 10px;
+  gap : 1.5rem;
+  margin : 0 2rem 0 1rem;
+}
+
+.grid-vedio-items{
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.7s ease-in;
+}
+
+.grid-vedio-items img{
+  position: absolute;
+  width : 100%;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+  cursor : url(https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68e3b2a062e7405c3602ab28_mickey-mouse-pointer-small.svg),
+    pointer;
+}
+
+.grid-vedio-items video{
+  z-index: 100; 
+  width: 0;
+  border-radius: 10px;
+  cursor : url(https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68e3b2a062e7405c3602ab28_mickey-mouse-pointer-small.svg),
+    pointer;
+}
+
+.video-item-follower{
+  display: none;
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0px;
+  left: 0px;
+  background-color: blue;
+  border-radius: 6px;
+  padding: 5px;
+  transform: rotate(-5deg);
+  color : white;
+  z-index : 90000;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  font-family : 'Bebas-Neue',sans-serif;
+  font-weight: 800;
+  transition: all 0.2s linear;
+}
+
+#grid-image-1,#grid-image-3{
+  transform: translate(-80%,0% ) rotate(-15deg);
+}
+
+#grid-image-2,#grid-image-4{
+  transform: rotate(15deg) translate(80%, 0%);
+}
+
