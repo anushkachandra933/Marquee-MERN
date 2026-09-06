@@ -21,10 +21,12 @@ body {
   background-color: #e4e4e4;
 }
 
-.dark {
-  color: white !important;
-  background-color: black !important;
-}
+.dark{color:white; background-color: black;}
+.dark #overlay { background-color: black; color: white; }
+.dark #contact-form-overlay{ background-color: black; color: white;}  
+.dark input::placeholder {color : rgb(65, 63, 63)}
+.dark .interest-option-item{color : black; background-color:rgb(65, 63, 63) ;}
+.dark .services-item span{color: rgb(231, 226, 226);}
 
 #nav-ribbon {
   background-color: transparent;
@@ -32,7 +34,6 @@ body {
   cursor:
     url(https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68e3b2a062e7405c3602ab28_mickey-mouse-pointer-small.svg),
     pointer;
-
   width: 100vw;
   height: 70px;
   position: fixed;
@@ -51,8 +52,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding : 1rem;
-  
+  padding : 1rem; 
 }
 
 #nav-ribbon-right{
@@ -86,12 +86,13 @@ body {
 #mode {
   width: 180px; 
 }
-#menu,
+
 #contact {
   transition: all 0.5s ease;
 }
 #menu {
   width: 70px;
+  transition: all 0.5s ease;
 }
 
 #animated-cursor-box {
@@ -102,7 +103,6 @@ body {
   border-radius: 10px 10px;
   /* Position based on the cursor */
   position: absolute;
-  transition: all linear 0.2s;
   opacity: 0;
 }
 
@@ -110,7 +110,7 @@ body {
   width: 110%;
 }
 
-/* oVERLAYS */
+/* OVERLAYS */
 #overlay {
   z-index: 100;
   display: flex;
@@ -120,20 +120,22 @@ body {
   width: 100vw;
   height: 100%;
   box-sizing: border-box; 
-  position: absolute;
-  background-color: white;
-  top: -112%;
-  transition: all 0.3s ease;
+  position: fixed;
+  background-color: #e4e4e4;
+  top: -135%;
+  transform: rotate(20deg);
+  transition: all 2s ease;
 }
 
 .overlay-menus h3 {
-  /* background-color: red; */
   font-size: 100px;
   line-height: 120px;
   font-weight: 800;
   cursor:
     url(https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68e3b2a062e7405c3602ab28_mickey-mouse-pointer-small.svg),
     pointer;
+  letter-spacing: -3px;
+  transition: all 2.5s ease-in-out; 
 }
 
 .overlay-item {
@@ -142,13 +144,8 @@ body {
   gap: 12px;
   margin-bottom: 18px;
   margin-right : 40px;
-  transform: scaleY(1.4); 
-  transition: all 0.3s ease-in-out; 
-}
-
-.overlay-item h3 {
-  letter-spacing: -3px;
-  transition: all 0.7s ease-in-out; 
+  transform: scaleY(0); 
+  transition: all 2.5s ease-in-out; 
 }
 
 .overlay-item img {
@@ -160,114 +157,45 @@ body {
 }
 
 #follower {
+  pointer-events: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: blue;
   transition: all 0.5s ease;
-  position: absolute;
+  position: fixed;
   z-index: 10;
-}
-
-/* PopOut Area */
-
-.popout-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap : 1.5rem;
-  margin-bottom: 150px;
-  width: 100vw;
-  height: 95vh;
-}
-.popout-area-head {
-  font-size: 1rem;
-  /* To capitalize the text */
-  text-transform: uppercase;
-  font-family: 'Bebas Neue',sans-serif;
-  font-weight: 200;
-  letter-spacing: 2px;
-  word-spacing: 7px;
-  margin-top: 10rem;
-}
-.popout-area-content p {
-  font-size: 4.8rem;
-  font-family: 'Changa One', sans-serif;
-  line-height: 100px;
-  word-spacing: 5px;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-align: center;
-  transform-origin: center;/*defines where the stretching starts (e.g., top, bottom, center).*/
-  /* transform: scaleY(1.3); */
-}
-
-.highlight {
-  text-decoration: underline;
-  position: relative;
-  display: inline-block;
-}
-
-.highlight img {
-  width: auto;
-  height: 220px;
-  object-fit: contain;
-
-  opacity: 0;
-  position: absolute;
-  bottom: -50px;
-  left: 50%; 
-  transform: translateX(-50%) translateY(50px);
-  transition:
-    opacity 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-  border-radius: 5%;
-}
-
-.highlight img.show {
-  border-radius: 5%;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  animation: pop 1s ease;
-}
-.image-highlight {
-  border-radius: 5%;
 }
 
 /* Contact Overlay  */
 #contact-form-overlay {
-  /* display: flex; */
-  align-items: center;
   padding: 1.6rem;
-  gap: 15rem;
   font-family: 'Bebas Neue', sans-serif;
   width: 100vw;
   height: 100%;
-  box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   top: -100%;
   transition: all 0.3s ease;
   background-color: #e4e4e4;
-  overflow: hidden;
   z-index: 1000;
+  overflow: hidden;
 }
 
 #contact-form-overlay h1 {
   font-size: 9rem;
   line-height: 8rem;
   font-weight: 900;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 }
 
-#gif-heading{
+#contact-form-overlay-heading{
   display: flex;
   gap : 1rem;
 }
 
-#gif-heading img{
-  height : 8rem;
+#contact-form-overlay-heading img{
+  height : 7rem;
   width : 0px;
-  overflow: hidden;
   border-radius: 10px;
   transition: all 0.6s ease-in;
 }
@@ -277,34 +205,34 @@ body {
   margin-top : 2rem;
   width: 100%;
   display: flex;
-  gap : 2rem;
+  gap : 3rem;
   height: 3rem;
 }
 
 .form-div label{
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 2.5px;
 }
 
  .form-div input{
   width : 100%;
-  letter-spacing: 0px;
-} 
-
-input {
+  letter-spacing: 3px;
   outline: none;
   border: none;
   background-color: transparent;
-}
+  color : black;
+  font-size: 3.3rem;
+  font-weight: 800;
+  font-family: 'Bebas Neue',sans-serif;
+  text-transform: uppercase;
+} 
 
-input,
-::placeholder {
+input::placeholder {
   text-transform: uppercase;
   font-size: 3.3rem;
   font-weight: 800;
-  color: #c9c9c9;
-  
   font-family: 'Bebas Neue',sans-serif;
+  color: #c9c9c9;
 }
 
 .interest-options{
@@ -319,44 +247,89 @@ input,
   padding : 0.5rem;
   font-size: 2rem;
   font-weight : 600;
+  cursor: pointer;
 }
+
 .interest-option-item.active{
   color: #c9c9c9;
   background-color : black;
 }
 
-/* TODO: Playground */
+/* PopOut Area */
+
+.popout-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap : 2rem;
+  width: 100vw;
+  height: 100vh;
+}
+
+.popout-area-head {
+  font-size: 0.9rem;
+  /* To capitalize the text */
+  text-transform: uppercase;
+  font-family: 'GT Pressura Mono';
+  letter-spacing: 1px;
+  word-spacing: 4px;
+  margin-top: 13rem;
+  color : rgb(96, 95, 95);
+}
+
+.popout-area-content p {
+  font-size: 70px;
+  font-family: 'Changa One', sans-serif;
+  line-height: 80px;
+  word-spacing: 5px;
+  font-weight: 200;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.highlight {
+  text-decoration: underline;
+  position: relative;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+.highlight img {
+  width: auto;
+  height: 220px;
+  object-fit: contain;
+  opacity: 0;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5%;
+}
+
+/*  Playground */
 
 #playground {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top : 20rem;
-  margin-bottom : 15rem;
+  margin-top : 18rem;
+  margin-bottom : 10rem;
 }
 
 #playground-heading {
-  padding: 5px ;
+  cursor:
+    url(https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68e3b2a062e7405c3602ab28_mickey-mouse-pointer-small.svg),
+    pointer;
   position: relative;
-  font-size: 14rem;
+  letter-spacing: 3px;
+  transform: scaleX(1.2);
+  font-size: 12rem;
   font-family: 'Bebas Neue', sans-serif;
-
 }
 
-#playground-item {
-  position: absolute;
-  font-size: 2rem;
-  top: 0px;
-  left: 0px;
-  background-color: blue;
-  border-radius: 6px;
-  padding: 5px;
-  transform: rotate(-5deg);
-  color : white;
-
-  transition: all 0.1s ease;
-}
+/* video boxes */
 
 #grid-vedio-box{
   display: grid;
@@ -364,7 +337,7 @@ input,
   grid-auto-rows: 97vh;
   padding : 10px;
   gap : 1.5rem;
-  margin : 0 2rem 0 1rem;
+  margin : 0 2rem 10rem 1rem;
 }
 
 .grid-vedio-items{
@@ -394,30 +367,82 @@ input,
     pointer;
 }
 
-.video-item-follower{
-  display: none;
-  position: absolute;
-  font-size: 1.5rem;
-  top: 0px;
-  left: 0px;
-  background-color: blue;
-  border-radius: 6px;
-  padding: 5px;
-  transform: rotate(-5deg);
-  color : white;
-  z-index : 90000;
-  transition: all 0.1s ease;
-  text-transform: uppercase;
-  font-family : 'Bebas-Neue',sans-serif;
-  font-weight: 800;
-  transition: all 0.2s linear;
-}
-
 #grid-image-1,#grid-image-3{
   transform: translate(-80%,0% ) rotate(-15deg);
 }
 
 #grid-image-2,#grid-image-4{
   transform: rotate(15deg) translate(80%, 0%);
+}
+
+#services-section{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 1rem 0 1rem 2rem;
+}
+
+.services-item{
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  height: 6rem;
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-item p{
+  font-size: 6rem;
+  font-family: 'Bebas Neue',sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.services-item span{
+  opacity: 0;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: rgb(61, 60, 60);
+  transition: all 0.3s ease;
+}
+
+.services-media {
+  position: absolute;
+  left: 5%;
+  height: 15rem;
+  width: 18rem;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.services-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-item:hover span {
+ opacity: 1;
+}
+.services-item:hover .services-media {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dim siblings when one item is hovered (modern browsers) */
+#services-section:has(.services-item:hover) .services-item:not(:hover) p {
+  color: #c9c9c9;
 }
 
